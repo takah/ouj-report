@@ -1,0 +1,152 @@
+\documentclass{jsarticle}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{物理と化学のための数学 第1回、第2回レポート}
+\author{堀内 孝彦}
+\date{October 2022}
+
+\begin{document}
+
+\maketitle
+
+\section*{問題1}
+座標$x$と時間$t$の関数である波の高さ $u(x, t)$ は、一般に $u(x, t) = f(kx-\omega t)$ （式1）と表される。（式1）の両辺を$x$、$t$で偏微分することにより、波動方程式$\frac{\partial^2}{\partial t^2} u(x, t) - v^2 \frac{\partial^2}{\partial x^2} u(x, t) = 0$ （式2）を導きなさい。ただし、$(\frac{\omega}{k})^2 = v^2$ である。$z = kx - \omega t$とおくと良い。（$f(kx - \omega t)$ の具体例には、$A sin(\frac{2\pi}{\lambda}x - \frac{2\pi}{T}T)$、（$A$、$\lambda$、$T$は、定数、波長と時間周期）（式3）がある。本問ではこの（式3）を用いた解答は正解としない。）
+
+\subsection*{解}
+$z = kx - \omega t}$ とおき、両辺を $x$ で二階偏微分する。
+\begin{gather*}
+\frac{\partial^2}{\partial x^2} u(x, t)
+= \frac{\partial^2}{\partial x^2} f(kx - \omega t) \\
+\frac{\partial^2}{\partial x^2} u(x, t)
+= \frac{\partial}{\partial x}\frac{\partial f(z)}{\partial z}\frac{\partial z}{\partial x} \\
+\frac{\partial^2}{\partial x^2} u(x, t)
+= \frac{\partial}{\partial x} k \frac{\partial f(z)}{\partial z} \\
+\frac{\partial^2}{\partial x^2} u(x, t)
+= k \frac{\partial}{\partial z} \frac{\partial f(z)}{\partial z} \frac{\partial z}{\partial x} \\
+\frac{\partial^2}{\partial x^2} u(x, t)
+= k^2 \frac{\partial^2 f(z)}{\partial z^2}
+\end{gather*}
+
+次に、両辺を $t$ で二階偏微分する。
+\begin{gather*}
+\frac{\partial^2}{\partial t^2} u(x, t)
+= \frac{\partial^2}{\partial t^2} f(kx - \omega t) \\
+\frac{\partial^2}{\partial t^2} u(x, t)
+= \frac{\partial}{\partial t} \frac{\partial f(z)}{\partial z} \frac{\partial z}{\partial t} \\
+\frac{\partial^2}{\partial t^2} u(x, t)
+= \frac{\partial}{\partial t} (-\omega) \frac{\partial f(z)}{\partial z} \\
+\frac{\partial^2}{\partial t^2} u(x, t)
+= -\omega \frac{\partial}{\partial z} \frac{\partial f(z)}{\partial z} \frac{\partial z}{\partial t} \\
+\frac{\partial^2}{\partial t^2} u(x, t)
+= \omega^2 \frac{\partial^2 f(z)}{\partial z^2} \\
+\end{gather*}
+
+$\frac{\partial^2 f(z)}{\partial z^2} = \frac{1}{k^2} \frac{\partial^2}{\partial x^2} u(x, t)$ を代入すると、
+\begin{gather*}
+\frac{\partial^2}{\partial t^2} u(x, t) = \left(\frac{\omega}{k} \right)^2 \frac{\partial^2}{\partial x^2} u(x, t) \\
+\frac{\partial^2}{\partial t^2} u(x, t) - \left(\frac{\omega}{k} \right)^2 \frac{\partial^2}{\partial x^2} u(x, t) = 0 \\
+\therefore \frac{\partial^2}{\partial t^2} u(x, t) - v^2 \frac{\partial^2}{\partial x^2} u(x, t) = 0
+\end{gather*}
+
+\section*{問題2}
+$\Psi_n(x) = \sqrt{\frac{2}{L}} sin\left(\frac{n\pi}{L}x\right)$ は、量子力学で登場するポテンシャルエネルギー$U(x)$が
+\[
+U(x) = \left\{
+\begin{array}{ll}
+0 & (0 \leq x \leq L)\\
+1 & (x < 0, L < x)
+\end{array}
+\right.
+\]
+（井戸型ポテンシャル）の1次元箱の中の粒子の波動関数である。但し、$n$は量子数で自然数、$L$は井戸の幅で実数の定数である。以下の 2(a) - 2(c) に答えなさい。途中の計算も示すこと。
+
+\subsection*{2 (a)}
+\[
+\int_0^L\Psi_m(x)^* \Psi_n(x) dx = \left\{
+\begin{array}{ll}
+1 & (m = n)\\
+0 & (m \neq n)
+\end{array}
+\right.
+\]
+を示しなさい。（この式は、固有関数の正規直交性の式。$\Psi_m(x)$ と複素共役な関数($i$を$-i$にした関数。共役複素数の関数版。）だが、今は $\Psi_m(x)$ が実関数なので $\Psi_m(x)$ と同じ。）
+
+\subsection*{2 (a) 解}
+\begin{gather*}
+\int_0^L \Psi_m (x)^* \Psi_n (x) dx \\
+= \frac{2}{L} \int_0^L sin \left(\frac{m\pi}{L}x \right) sin \left(\frac{n\pi}{L}x \right) dx \\
+= \frac{2}{L} \frac{1}{2}
+\int_0^L \left\{ cos\frac{(m-n)\pi}{L}x
+- cos\frac{(m+n)\pi}{L}x \right\} dx \tag{1}\label{2a1}
+\end{gather*}
+
+$m = n$ のとき、
+\begin{gather*}
+\eqref{2a1} = \frac{1}{L} \int_0^L
+\left\{
+1 - cos\frac{2n\pi}{L}x
+\right\} dx \\
+= \frac{1}{L} \left[
+x - \frac{L}{2n\pi} sin\frac{(m+n)\pi}{L}x
+\right]_0^L \\
+= \frac{1}{L} L \\
+= 1
+\end{gather*}
+
+$m \neq n$ のとき、
+\begin{gather*}
+(1) = \frac{1}{L} \left[
+\frac{L}{(m-n)\pi} sin\frac{(m-n)\pi}{L}x
+- \frac{L}{(m+n)\pi} sin\frac{(m+n)\pi}{L}x
+\right]_0^L \\
+= \frac{1}{(m-n)\pi} sin(m-n)\pi
+- \frac{1}{(m+n)\pi} sin(m+n)\pi \\
+= 0
+\end{gather*}
+
+\[
+\therefore
+\int_0^L\Psi_m(x)^* \Psi_n(x) dx = \left\{
+\begin{array}{ll}
+1 & (m = n)\\
+0 & (m \neq n)
+\end{array}
+\right.
+\]
+
+\subsection*{2 (b)}
+基底状態（$n = 1$）の粒子を、$\frac{1}{4} L \leq x \leq \frac{3}{4} L$ に見出す確率 $\int_{\frac{1}{4}L}^{\frac{3}{4}L} | \Psi_1(x)|^2$ dx$ を求めよ。（関数のグラフを描けば、答えが $\frac{1}{2}$ ではなさそうだと気づくでしょう。）
+
+\subsection*{2 (b) 解}
+\begin{gather*}
+\int_{\frac{1}{4}L}^{\frac{3}{4}L} |\Psi_1(x)|^2 dx \\
+= \int_{\frac{1}{4}L}^{\frac{3}{4}L}
+\frac{2}{L} sin^2\left( \frac{\pi}{L}x \right) dx \\
+= \frac{2}{L} \int_{\frac{1}{4}L}^{\frac{3}{4}L}
+\frac{1 - cos(2\frac{\pi}{L}x)}{2} dx \\
+= \frac{1}{L} \int_{\frac{1}{4}L}^{\frac{3}{4}L}
+(1 = cos\frac{2\pi}{L}x) dx \\
+= \frac{1}{L} \left[
+x - \frac{L}{2\pi} sin\frac{2\pi}{L}x
+\right]_{\frac{1}{4}L}^{\frac{3}{4}L} \\
+= \frac{1}{L} \left\{
+\frac{3}{4}L - \frac{1}{4}L - \frac{L}{2\pi} \left(
+sin \frac{2\pi}{L}\frac{3}{4}L - sin\frac{2\pi}{L}\frac{1}{4}L
+\right)
+\right\} \\
+= \frac{1}{2} - \frac{1}{2\pi} \left(
+sin\frac{3}{2}\pi - sin\frac{1}{2}\pi
+\right) \\
+= \frac{1}{2} - \frac{1}{2\pi}(-1-1) \\
+= \frac{1}{2} + \frac{1}{\pi}
+\end{gather*}
+
+\subsection*{2 (c)}
+運動量演算子は $\hat{p} : -i\hbar \frac{d}{dx}$ である。ただし、$\hbar = \frac{h}{2\pi}$、$h$ はプランク定数。期待値 $\int_0^L \Psi_1(x)^* \hat{p} \Psi_1(x) dx$ （式4）を求めよ。（式4）の $\hat{p}$ の位置に $-i\hbar\frac{d}{dx}$ を代入して実直に計算する。$\frac{d}{dx}$ と関数の順番を変えてはいけない。まず $\frac{d}{dx} \Psi_1{x)$ を計算せよ。
+
+\subsection*{2 (c) 解}
+
+
+\end{document}
