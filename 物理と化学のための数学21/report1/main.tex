@@ -147,6 +147,25 @@ sin\frac{3}{2}\pi - sin\frac{1}{2}\pi
 運動量演算子は $\hat{p} : -i\hbar \frac{d}{dx}$ である。ただし、$\hbar = \frac{h}{2\pi}$、$h$ はプランク定数。期待値 $\int_0^L \Psi_1(x)^* \hat{p} \Psi_1(x) dx$ （式4）を求めよ。（式4）の $\hat{p}$ の位置に $-i\hbar\frac{d}{dx}$ を代入して実直に計算する。$\frac{d}{dx}$ と関数の順番を変えてはいけない。まず $\frac{d}{dx} \Psi_1{x)$ を計算せよ。
 
 \subsection*{2 (c) 解}
-
-
+\begin{gather*}
+\int_0^L \Psi_1 (x)^* \hat{p} \Psi_1 (x) dx \\
+= \int_0^L \sqrt{\frac{2}{L}}
+sin \left(\frac{\pi}{L}x\right)
+\left( -i \hbar \frac{d}{dx} \right)
+\sqrt{\frac{2}{L}} sin\left(\frac{\pi}{L}x\right) dx \\
+= \frac{2}{L} \int_0^L sin\left( \frac{\pi}{L}x\right)
+\left( -i\hbar \frac{d}{dx} \right)
+sin\left( \frac{\pi}{L}x \right) ds \\
+= -i\hbar\frac{2}{L} \frac{\pi}{L}
+\int_0^L sin\left( \frac{\pi}{L}x\right)cos\left(\frac{\pi}{L}x\right) dx \\
+= -i\hbar\frac{2\pi}{L^2}\frac{1}{2}
+\int_0^L \left\{
+sin\left( \frac{\pi}{L}x + \frac{\pi}{L}x \right)
++ sin\left( \frac{\pi}{L}x - \frac{\pi}{L}x \right)
+\right\} dx \\
+= i\hbar \frac{\pi}{L^2}
+\left[\frac{L}{2\pi} cos\frac{2\pi}{L}x \right]_0^L \\
+= \frac{i\hbar}{2L} (cos 2\pi - cos 0) \\
+= 0
+\end{gather*}
 \end{document}
